@@ -13,7 +13,6 @@ class House {
     renderListItem(container, detailContainer) {
         const button = document.createElement('button');
         button.textContent = this.nombre;
-        button.style.backgroundColor = '#eee';
         button.className = 'house-button';
         button.addEventListener('click', () => {
             this.renderDetail(detailContainer);
@@ -53,18 +52,39 @@ class House {
             .then(res => res.json())
             .then(data => {
                 p.remove();
-                const ul = document.createElement('ul');
+                console.log(data);
+                const cardsContainer = document.createElement('div');
+                cardsContainer.className = 'characters-cards-container';
+
                 data.forEach(char => {
-                    const li = document.createElement('li');
-                    li.textContent = char.name;
-                    ul.appendChild(li);
+                    const card = document.createElement('div');
+                    card.className = 'character-card';
+
+                    const img = document.createElement('img');
+                    img.src = char.image || console.log("No se cargó correctamente la imagen del personaje");
+                    img.alt = char.name;
+                    img.className = 'character-img';
+                    img.onerror = function () {
+                        this.onerror = null;
+                        this.src = `assets/img/${char.house ? char.house.toLowerCase() : 'hogwarts'}.webp`;
+                    };
+
+                    const name = document.createElement('p');
+                    name.textContent = char.name;
+                    name.className = 'character-name';
+
+                    card.appendChild(img);
+                    card.appendChild(name);
+                    cardsContainer.appendChild(card);
                 });
-                container.appendChild(ul);
+
+                container.appendChild(cardsContainer);
             })
             .catch(err => {
                 p.textContent = 'Error al cargar personajes.';
             });
     }
+
 }
 
 const API_HOUSES_URL = 'https://hp-api.onrender.com/api/characters/house';

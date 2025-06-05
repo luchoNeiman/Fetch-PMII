@@ -1,0 +1,117 @@
+// assets/js/script.js
+
+class House {
+    constructor({ id, name, animal, houseColours, traits }) {
+        this.id = id;
+        this.nombre = name;
+        this.color = houseColours;
+        this.animal = animal;
+        // traits es un array de objetos { name: "Valor" }
+        this.valores = traits ? traits.map(t => t.name) : [];
+    }
+
+    renderListItem(container, detailContainer) {
+        const button = document.createElement('button');
+        button.textContent = this.nombre;
+        button.style.backgroundColor = '#eee';
+        button.className = 'house-button';
+        button.addEventListener('click', () => {
+            this.renderDetail(detailContainer);
+        });
+        container.appendChild(button);
+    }
+
+    renderDetail(container) {
+        container.innerHTML = '';
+
+        const title = document.createElement('h3');
+        title.textContent = this.nombre;
+
+        const color = document.createElement('p');
+        color.textContent = `Colores: ${this.color}`;
+
+        const animal = document.createElement('p');
+        animal.textContent = `Animal: ${this.animal}`;
+
+        const valores = document.createElement('p');
+        valores.textContent = `Valores: ${this.valores.join(', ')}`;
+
+        container.appendChild(title);
+        container.appendChild(color);
+        container.appendChild(animal);
+        container.appendChild(valores);
+
+        this.fetchCharacters(container);
+    }
+
+    fetchCharacters(container) {
+        const p = document.createElement('p');
+        p.textContent = 'Cargando personajes...';
+        container.appendChild(p);
+
+        fetch(`https://hp-api.onrender.com/api/characters/house/${this.nombre.toLowerCase()}`)
+            .then(res => res.json())
+            .then(data => {
+                p.remove();
+                const ul = document.createElement('ul');
+                data.forEach(char => {
+                    const li = document.createElement('li');
+                    li.textContent = char.name;
+                    ul.appendChild(li);
+                });
+                container.appendChild(ul);
+            })
+            .catch(err => {
+                p.textContent = 'Error al cargar personajes.';
+            });
+    }
+}
+
+const API_HOUSES_URL = 'https://hp-api.onrender.com/api/characters/house';
+const HOUSE_INFO_URL = 'https://wizard-world-api.herokuapp.com/Houses';
+
+function fetchAndRenderHouses(listContainer, detailContainer) {
+    const loading = document.createElement('p');
+    loading.textContent = 'Cargando casas...';
+    listContainer.appendChild(loading);
+
+    fetch(HOUSE_INFO_URL)
+        .then(res => res.json())
+        .then(data => {
+            loading.remove();
+            data.forEach(h => {
+                const house = new House(h);
+                house.renderListItem(listContainer, detailContainer);
+            });
+        })
+        .catch(err => {
+            loading.textContent = 'Error al cargar las casas.';
+        });
+}
+
+// DOM Ready
+
+document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
+
+    if (path.includes('index.html') || path.endsWith('/')) {
+        const btnQuiz = document.getElementById('start-quiz');
+        const btnExplore = document.getElementById('explore-houses');
+
+        btnQuiz?.addEventListener('click', () => window.location.href = 'quiz.html');
+        btnExplore?.addEventListener('click', () => window.location.href = 'house.html');
+    }
+
+    if (path.includes('house.html')) {
+        const listContainer = document.getElementById('house-list');
+        const detailContainer = document.getElementById('house-detail');
+        fetchAndRenderHouses(listContainer, detailContainer);
+    }
+
+    if (path.includes('quiz.html')) {
+        const quizContainer = document.getElementById('quiz-content');
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Pronto aparecerán las preguntas aquí.';
+        quizContainer.appendChild(h3);
+    }
+});

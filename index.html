@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-Es">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,19 +12,33 @@
 <body>
     <header>
         <h1>El Sombrero Seleccionador</h1>
-        <nav>
-            <a href="quiz.html">Comenzar Cuestionario</a>
-            <a href="house.html?casa=gryffindor">Explorar Casas</a>
-        </nav>
     </header>
 
     <main>
-        <section>
-            <p>¡Bienvenido al mundo mágico de Hogwarts! Descubrí a qué casa pertenecés y conocé a sus integrantes.</p>
+        <section class="cards-container">
+            <div class="main-card loading" style="background-image: url('assets/img/sombrero.jpg');">
+                <a href="quiz.html" class="card-link">
+                    <div class="card-content">
+                        <h2>Comenzar Cuestionario</h2>
+                        <div class="card-hover-text">
+                            Descubrí a qué casa de Hogwarts pertenecés respondiendo unas preguntas mágicas.
+                        </div>
+                    </div>
+                </a>
+                <div class="loader"></div>
+            </div>
+            <div class="main-card loading" style="background-image: url('assets/img/cuatrocasas.jpg');">
+                <a href="house.html" class="card-link">
+                    <div class="card-content">
+                        <h2>Explorar Casas</h2>
+                        <div class="card-hover-text">
+                            Conocé las casas de Hogwarts y a sus personajes más famosos.
+                        </div>
+                    </div>
+                </a>
+                <div class="loader"></div>
+            </div>
         </section>
     </main>
-
-    
 </body>
-
 </html>

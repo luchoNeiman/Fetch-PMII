@@ -306,3 +306,73 @@ main {
     transform: scale(1.04);
     box-shadow: 0 8px 32px #ffd70088, 0 4px 24px rgba(0, 0, 0, 0.28);
 }
+
+.quiz-question-box {
+    background: #222;
+    color: #ffd700;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 2rem;
+    max-width: 420px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.quiz-option-btn {
+    font-size: 1.1rem;
+    padding: 0.8em 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    outline: none;
+}
+.quiz-option-btn:active {
+    transform: scale(0.97);
+}
+
+/* Colores por casa */
+.house-gryffindor { background: #7f0909; }
+.house-slytherin { background: #0d6217; }
+.house-ravenclaw { background: #222f5b; }
+.house-hufflepuff { background: #f0c75e; color: #222; }
+
+.quiz-result {
+    background: #222;
+    color: #ffd700;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 2rem;
+    max-width: 420px;
+    margin: 2rem auto;
+    text-align: center;
+}
+.quiz-result-img {
+    width: 100px;
+    margin: 1.5rem 0;
+}
+.quiz-restart-btn {
+    margin-top: 1.5rem;
+    background: #ffd700;
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.2em;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+.quiz-restart-btn:hover {
+    background: #fffbe6;
+}

@@ -25,16 +25,16 @@ class House {
 
         switch (this.nombre) {
             case 'Gryffindor':
-                content.innerHTML += `<img src="assets/img/gryffindor.webp" alt="${this.nombre} logo">`;
+                content.innerHTML += `<img src="assets/img/casaGryffindor.jpg" alt="${this.nombre} logo">`;
                 break;
             case 'Hufflepuff':
-                content.innerHTML += `<img src="assets/img/hufflepuff.webp" alt="${this.nombre} logo">`;
+                content.innerHTML += `<img src="assets/img/casaHufflepuff.jpg" alt="${this.nombre} logo">`;
                 break;
             case 'Ravenclaw':
-                content.innerHTML += `<img src="assets/img/ravenclaw.webp" alt="${this.nombre} logo">`;
+                content.innerHTML += `<img src="assets/img/casaRavenclaw.webp" alt="${this.nombre} logo">`;
                 break;
             case 'Slytherin':
-                content.innerHTML += `<img src="assets/img/slytherin.webp" alt="${this.nombre} logo">`;
+                content.innerHTML += `<img src="assets/img/casaSlytherin.jpg" alt="${this.nombre} logo">`;
                 break;
             default:
                 break;
@@ -231,7 +231,7 @@ const HOUSE_INFO_URL = 'https://wizard-world-api.herokuapp.com/Houses';
 
 function fetchAndRenderHouses(listContainer, detailContainer) {
     const loading = document.createElement('p');
-    loading.textContent = 'Cargando casas...';
+    loading.textContent = 'PONER IMAGEN DE SOMBRERO O ALGO ASI...';
     listContainer.appendChild(loading);
 
     fetch(HOUSE_INFO_URL)
@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (path.includes('quiz.html')) {
+        console.log('Entrando a quiz.html');
         const quizContainer = document.getElementById('quiz-content');
         new Quiz(quizContainer);
     }

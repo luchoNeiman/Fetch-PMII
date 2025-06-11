@@ -11,13 +11,30 @@ class House {
     }
 
     renderListItem(container, detailContainer) {
-        const button = document.createElement('button');
-        button.textContent = this.nombre;
-        button.className = 'house-button';
-        button.addEventListener('click', () => {
+        // Crea la card semántica
+        const card = document.createElement('article');
+        card.className = `house-card house-${this.nombre.toLowerCase()}`;
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Ver detalles de la casa ${this.nombre}`);
+
+        // Contenido de la card
+        const content = document.createElement('div');
+        content.className = 'house-card-content';
+        content.innerHTML = `<h2>${this.nombre}</h2>`;
+
+        card.appendChild(content);
+
+        card.addEventListener('click', () => {
             this.renderDetail(detailContainer);
         });
-        container.appendChild(button);
+        card.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') this.renderDetail(detailContainer);
+        });
+
+        // Contenedor flex para las cards
+        container.classList.add('house-cards-container');
+        container.appendChild(card);
     }
 
     renderDetail(container) {

@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f7f3e9;
+    background: linear-gradient(135deg, #222 0%, #4b2e05 60%, #ffd700 100%);
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -12,13 +13,60 @@ header {
     text-align: center;
 }
 
+h1 {
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(206, 187, 15, 0.5);
+}
+
 nav a {
     color: #ffd700;
     margin: 0 1em;
     text-decoration: none;
 }
 
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #222;
+    color: #fff;
+    padding: 2em 0 2em 0;
+    min-height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    margin: 1.5em 0;
+}
+
+.sidebar nav a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.sidebar nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+
 main {
+    flex: 1;
     padding: 2em;
 }
 
@@ -30,6 +78,7 @@ main {
 }
 
 .character-card {
+    position: relative;
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -39,6 +88,34 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+    overflow: hidden;
+}
+
+.character-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, #ffd70033 0%, #fffbe633 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.character-card:hover {
+    box-shadow: 0 4px 24px #ffd70088, 0 2px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px) scale(1.04);
+}
+
+.character-card:hover::before {
+    opacity: 1;
+}
+
+.character-card .character-img,
+.character-card .character-name {
+    position: relative;
+    z-index: 2;
 }
 
 .character-img {
@@ -150,4 +227,82 @@ main {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* Contenedor de las cards de casas */
+.house-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+/* Card base */
+.house-card {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    outline: none;
+    background-size: cover;
+    background-position: center;
+}
+
+.house-card:focus {
+    box-shadow: 0 0 0 3px #ffd700, 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.house-card-content {
+    width: 100%;
+    background: rgba(30, 30, 30, 0.65);
+    padding: 1.2rem 1rem 1rem 1rem;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color: #ffd700;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.house-card-content h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px #222;
+}
+
+/* Imagen y color por casa */
+.house-gryffindor {
+    background-image: url('../img/gryffindor.jpg');
+    border: 3px solid #7f0909;
+}
+
+.house-slytherin {
+    background-image: url('../img/slytherin.jpg');
+    border: 3px solid #0d6217;
+}
+
+.house-ravenclaw {
+    background-image: url('../img/ravenclaw.jpg');
+    border: 3px solid #222f5b;
+}
+
+.house-hufflepuff {
+    background-image: url('../img/hufflepuff.jpg');
+    border: 3px solid #f0c75e;
+}
+
+/* Hover efecto mágico */
+.house-card:hover,
+.house-card:focus {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px #ffd70088, 0 4px 24px rgba(0, 0, 0, 0.28);
 }

@@ -120,8 +120,6 @@ class House {
             });
     }
 }
-
-// Clase Quiz para el cuestionario del sombrero seleccionador
 class Quiz {
     constructor(container) {
         this.container = container;
@@ -348,8 +346,6 @@ function fetchAndRenderHouses(listContainer, detailContainer) {
             loading.textContent = 'Error al cargar las casas.';
         });
 }
-
-// DOM Ready
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;

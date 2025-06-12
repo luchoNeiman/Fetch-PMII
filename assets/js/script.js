@@ -21,7 +21,7 @@ class House {
         // Contenido de la card
         const content = document.createElement('div');
         content.className = 'house-card-content';
-        content.innerHTML = `<h2>${this.nombre}</h2>`;
+        // content.innerHTML = `<h2>${this.nombre}</h2>`;
 
         switch (this.nombre) {
             case 'Gryffindor':
@@ -31,7 +31,7 @@ class House {
                 content.innerHTML += `<img src="assets/img/casaHufflepuff.jpg" alt="${this.nombre} logo">`;
                 break;
             case 'Ravenclaw':
-                content.innerHTML += `<img src="assets/img/casaRavenclaw.webp" alt="${this.nombre} logo">`;
+                content.innerHTML += `<img src="assets/img/casaRavenclaw.jpg" alt="${this.nombre} logo">`;
                 break;
             case 'Slytherin':
                 content.innerHTML += `<img src="assets/img/casaSlytherin.jpg" alt="${this.nombre} logo">`;
@@ -69,6 +69,7 @@ class House {
         const valores = document.createElement('p');
         valores.textContent = `Values: ${this.valores.join(', ')}`;
 
+        container.classList.add('detail-container-info')
         container.appendChild(title);
         container.appendChild(color);
         container.appendChild(animal);
@@ -80,6 +81,7 @@ class House {
     fetchCharacters(container) {
         const p = document.createElement('p');
         p.textContent = 'Cargando personajes...';
+        p.className = 'loading-message';
         container.appendChild(p);
 
         fetch(`https://hp-api.onrender.com/api/characters/house/${this.nombre.toLowerCase()}`)
@@ -329,7 +331,8 @@ const HOUSE_INFO_URL = 'https://wizard-world-api.herokuapp.com/Houses';
 
 function fetchAndRenderHouses(listContainer, detailContainer) {
     const loading = document.createElement('p');
-    loading.textContent = 'PONER IMAGEN DE SOMBRERO O ALGO ASI...';
+    loading.textContent = 'Cargando las casas de Hogwarts...';
+    loading.className = 'loading-message';
     listContainer.appendChild(loading);
 
     fetch(HOUSE_INFO_URL)

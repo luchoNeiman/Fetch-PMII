@@ -149,7 +149,7 @@ class Quiz {
         resultBox.innerHTML = `
       <h2>¡Tu casa es <span>${house}</span>!</h2>
       <img src="assets/img/${house.toLowerCase()}.webp" alt="Escudo de ${house}" class="quiz-result-img">
-      <p>¡Felicitaciones! El Sombrero Seleccionador te ha asignado a <b>${house}</b>.</p>
+      <p>¡Felicitaciones! El Sombrero Seleccionador te ha asignado a <strong>${house}</strong>.</p>
       <button class="quiz-restart-btn">Volver a intentar</button>
     `;
 
@@ -176,7 +176,123 @@ function getQuizQuestions() {
                 { text: "Tejón", house: "Hufflepuff" }
             ]
         },
-        // ... agregar el resto de preguntas aquí como estaba antes
+        {
+            question: "¿Qué valoras más?",
+            options: [
+                { text: "Valentía", house: "Gryffindor" },
+                { text: "Astucia", house: "Slytherin" },
+                { text: "Sabiduría", house: "Ravenclaw" },
+                { text: "Lealtad", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué lugar prefieres en Hogwarts?",
+            options: [
+                { text: "La sala común junto al fuego", house: "Gryffindor" },
+                { text: "Las mazmorras", house: "Slytherin" },
+                { text: "La torre más alta", house: "Ravenclaw" },
+                { text: "El jardín", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué clase disfrutas más?",
+            options: [
+                { text: "Defensa Contra las Artes Oscuras", house: "Gryffindor" },
+                { text: "Pociones", house: "Slytherin" },
+                { text: "Encantamientos", house: "Ravenclaw" },
+                { text: "Cuidado de Criaturas Mágicas", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué objeto mágico te gustaría tener?",
+            options: [
+                { text: "La espada de Godric Gryffindor", house: "Gryffindor" },
+                { text: "El guardapelo de Slytherin", house: "Slytherin" },
+                { text: "El diadema de Ravenclaw", house: "Ravenclaw" },
+                { text: "La copa de Hufflepuff", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Cuál de estas cualidades te describe mejor?",
+            options: [
+                { text: "Coraje", house: "Gryffindor" },
+                { text: "Ambición", house: "Slytherin" },
+                { text: "Intelecto", house: "Ravenclaw" },
+                { text: "Trabajo en equipo", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿A quién admiras más?",
+            options: [
+                { text: "Harry Potter", house: "Gryffindor" },
+                { text: "Draco Malfoy", house: "Slytherin" },
+                { text: "Luna Lovegood", house: "Ravenclaw" },
+                { text: "Cedric Diggory", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué harías si ves a alguien haciendo trampa?",
+            options: [
+                { text: "Lo enfrento directamente", house: "Gryffindor" },
+                { text: "Lo uso a mi favor", house: "Slytherin" },
+                { text: "Analizo si vale la pena intervenir", house: "Ravenclaw" },
+                { text: "Intento hablar con la persona en privado", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Cuál sería tu papel en una aventura?",
+            options: [
+                { text: "El líder valiente", house: "Gryffindor" },
+                { text: "El estratega silencioso", house: "Slytherin" },
+                { text: "El sabio consejero", house: "Ravenclaw" },
+                { text: "El compañero leal", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué criatura mágica te atrae más?",
+            options: [
+                { text: "Hipogrifo", house: "Gryffindor" },
+                { text: "Basilisco", house: "Slytherin" },
+                { text: "Fénix", house: "Ravenclaw" },
+                { text: "Niffler", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Cómo reaccionás ante un conflicto?",
+            options: [
+                { text: "Confrontando sin miedo", house: "Gryffindor" },
+                { text: "Manipulando la situación a mi favor", house: "Slytherin" },
+                { text: "Evaluando todas las opciones posibles", house: "Ravenclaw" },
+                { text: "Mediando para buscar la armonía", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué tipo de amigos preferís?",
+            options: [
+                { text: "Leales y valientes", house: "Gryffindor" },
+                { text: "Influyentes y decididos", house: "Slytherin" },
+                { text: "Inteligentes y creativos", house: "Ravenclaw" },
+                { text: "Solidarios y humildes", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Qué harías si ves a un amigo en peligro?",
+            options: [
+                { text: "Actuaría de inmediato para ayudar", house: "Gryffindor" },
+                { text: "Buscaría una solución astuta", house: "Slytherin" },
+                { text: "Analizaría el riesgo primero", house: "Ravenclaw" },
+                { text: "Lo acompañaría sin dudar", house: "Hufflepuff" }
+            ]
+        },
+        {
+            question: "¿Cuál sería tu actividad favorita en Hogwarts?",
+            options: [
+                { text: "Participar en el Torneo de los Tres Magos", house: "Gryffindor" },
+                { text: "Explorar secretos del castillo", house: "Slytherin" },
+                { text: "Estudiar en la biblioteca", house: "Ravenclaw" },
+                { text: "Ayudar a tus compañeros", house: "Hufflepuff" }
+            ]
+        }
     ];
 }
 

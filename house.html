@@ -2,9 +2,10 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Casas de Harry Potter</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/script.js" defer></script>
 </head>
 
@@ -17,12 +18,17 @@
                 <li><a href="house.html">Explorar Casas</a></li>
             </ul>
         </nav>
+        <!-- <h1>Explora las Casas</h1> -->
     </header>
 
     <main>
-        <h1>Explora las Casas</h1>
-        <div id="house-list"></div>
-        <div id="house-detail"></div>
+        <section id="house-list" class="house-cards-container" aria-label="Listado de casas de Hogwarts">
+            <!-- Las casas se insertan dinámicamente aquí -->
+        </section>
+
+        <section id="house-detail" class="detail-container-info" aria-label="Detalle de la casa seleccionada">
+            <!-- El detalle de la casa y sus personajes se renderiza aquí -->
+        </section>
     </main>
 </body>
 

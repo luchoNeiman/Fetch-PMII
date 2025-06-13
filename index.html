@@ -1,44 +1,50 @@
 <!DOCTYPE html>
-<html lang="es-Es">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bienvenido a Hogwarts</title>
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/script.js" defer></script>
 </head>
 
 <body>
+    <div id="preloader" class="preloader">
+        <img src="assets/img/sombreroLoading.png" alt="Sombrero seleccionador cargando" class="hat-loader"/>
+    </div>
+
     <header>
         <h1>El Sombrero Seleccionador</h1>
     </header>
 
     <main>
-        <section class="cards-container">
-            <div class="main-card loading" style="background-image: url('assets/img/sombrero.jpg');">
-                <a href="quiz.html" class="card-link">
+        <section class="cards-container" aria-label="Accesos principales">
+            <article class="main-card loading" style="background-image: url('assets/img/sombrero.jpg');">
+                <a href="quiz.html" class="card-link" aria-label="Comenzar cuestionario para descubrir tu casa">
                     <div class="card-content">
                         <h2>Comenzar Cuestionario</h2>
-                        <div class="card-hover-text">
+                        <p class="card-hover-text">
                             Descubrí a qué casa de Hogwarts pertenecés respondiendo unas preguntas mágicas.
-                        </div>
+                        </p>
                     </div>
                 </a>
-                <div class="loader"></div>
-            </div>
-            <div class="main-card loading" style="background-image: url('assets/img/cuatrocasas.jpg');">
-                <a href="house.html" class="card-link">
+                <div class="loader" aria-hidden="true"></div>
+            </article>
+
+            <article class="main-card loading" style="background-image: url('assets/img/cuatrocasas.jpg');">
+                <a href="house.html" class="card-link" aria-label="Explorar casas y personajes de Hogwarts">
                     <div class="card-content">
                         <h2>Explorar Casas</h2>
-                        <div class="card-hover-text">
+                        <p class="card-hover-text">
                             Conocé las casas de Hogwarts y a sus personajes más famosos.
-                        </div>
+                        </p>
                     </div>
                 </a>
-                <div class="loader"></div>
-            </div>
+                <div class="loader" aria-hidden="true"></div>
+            </article>
         </section>
     </main>
 </body>
+
 </html>

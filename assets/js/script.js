@@ -341,3 +341,9 @@ document.addEventListener('DOMContentLoaded', () => {
         new Quiz(quizContainer);
     }
 });
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 2000); // Espera 2 segundos antes de quitar el loader
+});

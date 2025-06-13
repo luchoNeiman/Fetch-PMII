@@ -206,11 +206,11 @@ main {
 }
 
 .house-card-content img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    display: flex;
+    justify-content: center;
+    width: 13.75em;
+    height: 8.75em;
+    border-bottom-left-radius: 5em;
 }
 
 .house-card:hover,
@@ -380,120 +380,97 @@ main {
     border: 0.4em solid rgba(255, 255, 255, 0.3);
     border-top: 0.4em solid var(--dorado);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 1s linear;
     margin: 1em auto;
 } */
 
-.house-card:hover,
-.house-card:focus {
-    transform: scale(1.04);
-    box-shadow: 0 0.5em 2em #ffd70088, 0 0.25em 1.5em rgba(0, 0, 0, 0.28);
-}
-
-.quiz-question-box {
-    background: #222;
-    color: #ffd700;
-    border-radius: 1.125em;
-    box-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.18);
-    padding: 2em;
-    max-width: 26.25em;
-    margin: 2em auto;
-    text-align: center;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2em;
-    margin-top: 2em;
-}
-
-.quiz-option-btn {
-    font-size: 1.1em;
-    padding: 0.8em 1.2em;
-    border: none;
-    border-radius: 0.5em;
-    cursor: pointer;
-    background: #efc139;
-    font-family: inherit;
-    transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.08);
-    outline: none;
-}
-
-.quiz-option-btn:active {
-    transform: scale(0.97);
-}
-
-
-
-.quiz-result {
-    background: #222;
-    color: #ffd700;
-    border-radius: 1.125em;
-    box-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.18);
-    padding: 2em;
-    max-width: 26.25em;
-    margin: 2em auto;
-    text-align: center;
-}
-
-.quiz-result-img {
-    width: 6.25em;
-    margin: 1.5em 0;
-}
-
-.quiz-restart-btn {
-    margin-top: 1.5em;
-    background: #ffd700;
-    color: #222;
-    border: none;
-    border-radius: 0.5em;
-    padding: 0.7em 1.2em;
-    font-size: 1em;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.2s;
-}
-
-.quiz-restart-btn:hover {
-    background: #fffbe6;
-}
-
-.house-card-content img {
-    display: flex;
-    width: 13.75em;
-    height: 8.75em;
-    justify-content: center;
-}
-
-.navbar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1.5em;
-    /* Espacio entre los links */
-}
-
-.navbar ul li {
-    margin: 0;
-    /* Elimina el margen vertical */
-}
-
-.loading-message {
-    color: #fff;
-}
-
-.detail-container-info {
-    color: #fff;
-}
-
-
+/* RESPONSIVE */
 @media (max-width: 767px) {
+    header h1 {
+        font-size: 1.8em;
+        padding: 0.5em;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .cards-container,
+    .house-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+    }
+
+    .main-card {
+        width: 90%;
+        height: 20em;
+    }
+
+    .card-content {
+        padding: 1em;
+    }
+
+    .card-content h2 {
+        font-size: 1.2em;
+    }
+
+    .card-hover-text {
+        font-size: 0.95em;
+    }
+
+    .house-card {
+        width: 35em;
+        height: 20em;
+        aspect-ratio: 16/9;
+    }
+
+    .house-card-content h2 {
+        font-size: 1.2em;
+    }
+
+    .house-card-content img {
+        width: 35em;
+        height: 20em;
+    }
+
+    .character-card {
+        width: 90%;
+    }
+
+    .character-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .quiz-question-box,
+    .quiz-result {
+        max-width: 98vw;
+        padding: 1.2em 0.5em;
+        font-size: 1.05em;
+        margin: 1.2em auto;
+    }
+
+    .quiz-result-img {
+        width: 5em;
+        margin: 1em 0;
+    }
+
+    .quiz-options {
+        gap: 0.7em;
+    }
+
+    .quiz-option-btn {
+        font-size: 1.05em;
+        padding: 0.7em 0.7em;
+        min-width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* @media (max-width: 767px) {
 
     header h1 {
         font-size: 1.8em;
@@ -615,4 +592,4 @@ main {
         margin: 0 auto;
         display: block;
     }
-}
+} */

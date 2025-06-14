@@ -441,18 +441,23 @@ body.loaded .preloader {
     }
 
     .house-card {
-        width: 35em;
-        height: 20em;
+        width: 100%;
+        height: 20%;
         aspect-ratio: 16/9;
     }
+
+    .house-card-content{
+        width: auto;
+    }
+
 
     .house-card-content h2 {
         font-size: 1.2em;
     }
 
     .house-card-content img {
-        width: 35em;
-        height: 20em;
+        width: 23em;
+        height: 14em;
     }
 
     .character-card {
